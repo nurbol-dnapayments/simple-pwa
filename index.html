@@ -35,8 +35,130 @@
 
     <!-- Manifest File link -->
     <link rel="manifest" href="/simple-pwa/site.webmanifest" />
+
+    <!-- Site styles -->
+    <link
+      rel="styleshoot"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+    <link rel="styleshoot" href="/simple-pwa/css/main.css" />
+
+    <!-- Site scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="https://test-cdn.dnapayments.com/js/hosted-fields/hosted-fields.js?v10"></script>
+    <script src="/simple-pwa/js/main.js"></script>
   </head>
   <body>
+    <form action="javascript:void(0)" class="container">
+      <h1>DNA Hosted Fields example</h1>
+      <br />
+
+      <div id="loader">Loading token ....</div>
+      <div id="hosted-fields" style="display: none">
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="input-group">
+              <span class="input-group-addon"
+                ><span class="glyphicon glyphicon-user"></span
+              ></span>
+              <div id="hf-name" class="form-control"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="input-group">
+              <span class="input-group-addon"
+                ><span class="glyphicon glyphicon-credit-card"></span
+              ></span>
+              <div id="hf-number" class="form-control"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-xs-6">
+            <div class="input-group">
+              <span class="input-group-addon">
+                <span class="glyphicon glyphicon-calendar"></span>
+              </span>
+              <div id="hf-date" class="form-control"></div>
+            </div>
+          </div>
+
+          <div class="col-xs-6">
+            <div class="input-group">
+              <span class="input-group-addon"
+                ><span class="glyphicon glyphicon-lock"></span
+              ></span>
+              <div id="hf-cvv" class="form-control"></div>
+              <span class="input-group-addon">CVV</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-xs-6">
+            <div class="input-group pay-group">
+              <input
+                id="pay-btn"
+                class="btn btn-success"
+                type="submit"
+                value="Pay"
+                data-loading-text="Loading..." />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div
+          id="success"
+          class="alert alert-success"
+          role="alert"
+          style="display: none">
+          Payment was successfull
+        </div>
+        <div
+          id="failed"
+          class="alert alert-danger"
+          role="alert"
+          style="display: none">
+          Payment was unsuccessfull
+        </div>
+        <pre
+          id="errors"
+          class="alert alert-danger"
+          role="alert"
+          style="display: none"></pre>
+      </div>
+
+      <div>
+        <h3>Payment Data (v2)</h3>
+        <pre id="payment-data"></pre>
+      </div>
+    </form>
+
+    <!-- Modal -->
+    <div class="modal fade" id="threeDSecureModal" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <h4 class="modal-title" id="myModalLabel">Three D Secure</h4>
+          </div>
+          <div class="modal-body" id="threeDSecureModalContent"></div>
+        </div>
+      </div>
+    </div>
+
     <script>
       window.addEventListener("load", () => {
         registerSW();

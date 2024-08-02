@@ -1,0 +1,24 @@
+.row {
+  margin-bottom: 1em;
+}
+
+.dna-payments-hosted-field-focused {
+  border-color: #80bdff;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.dna-payments-hosted-field-valid {
+  border-color: #28a745;
+}
+
+.dna-payments-hosted-field-valid.dna-payments-hosted-field-focused {
+  box-shadow: 0 0 0 0.2rem rgb(40, 167, 69, 0.25);
+}
+
+.dna-payments-hosted-field-invalid {
+  border-color: #dc3545;
+}
+
+.dna-payments-hosted-field-invalid.dna-payments-hosted-field-focused {
+  box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
+}
