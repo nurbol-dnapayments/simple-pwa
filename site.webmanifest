@@ -1,6 +1,7 @@
 {
   "name": "PWA Hosted Fields",
   "short_name": "PWAHF",
+  "start_url": "/simple-pwa/",
   "icons": [
     {
       "src": "/simple-pwa/android-chrome-192x192.png",
